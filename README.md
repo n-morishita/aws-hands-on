@@ -1,3 +1,4 @@
+# 準備
 - Terraformのインストール (main.tfのrequired_versionとバージョンを同じにする)
 
 - AWS_ACCESS_KEY_IDとAWS_SECRET_ACCESS_KEYを事前に作成
@@ -5,6 +6,7 @@ IAM -> ユーザー -> <自身のユーザー> -> セキュリティ認証情報
 
 - backend用のS3を事前に作成
 
+# 実行
 ```bash
 # 接続情報の設定
 export AWS_ACCESS_KEY_ID=""
