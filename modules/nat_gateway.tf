@@ -1,7 +1,7 @@
 # nat gateway
 resource "aws_nat_gateway" "nat_gateway" {
   allocation_id = aws_eip.nat_gateway.id
-  subnet_id     = aws_subnet.private["az_a"].id
+  subnet_id     = aws_subnet.public["az_a"].id
   tags = {
     Name = "study-ngw"
   }
