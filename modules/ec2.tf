@@ -13,8 +13,8 @@
 
 # webサーバー (private)
 resource "aws_instance" "web" {
-  ami                    = "ami-0a1c2ec61571737db"
-  instance_type          = "t2.small"
+  ami                    = "ami-0599b6e53ca798bb2"
+  instance_type          = "t2.micro"
   subnet_id              = aws_subnet.private["az_a"].id
   vpc_security_group_ids = [aws_security_group.web.id]
   user_data              = file("${path.module}/user_data/app-setup.sh")
