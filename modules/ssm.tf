@@ -17,7 +17,7 @@ resource "aws_iam_role" "ssm_role" {
 # SSM 用の IAM ポリシーアタッチ
 resource "aws_iam_role_policy_attachment" "ssm_policy" {
   role       = aws_iam_role.ssm_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
 # EC2 インスタンスプロファイル
