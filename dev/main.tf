@@ -1,25 +1,20 @@
-# Terraform の設定ブロック
 terraform {
-  # 必要なTerraformのバージョンを指定（1.10.0 以上のバージョンで動作）
   required_version = "~> 1.10.0"
 
-  # 必要なプロバイダーの定義
   required_providers {
     aws = {
-      source  = "hashicorp/aws" # AWSプロバイダーの提供元
-      version = "~> 5.83.0"     # 5.83.0 以上のバージョンを使用（5.xの範囲内）
+      source  = "hashicorp/aws"
+      version = "~> 5.83.0"
     }
   }
 }
 
-# AWS プロバイダーの設定
 provider "aws" {
-  region = "ap-northeast-1" # 東京リージョンを指定
+  region = "ap-northeast-1"
 
-  # デフォルトで適用するタグの設定（全てのAWSリソースに適用される）
   default_tags {
     tags = {
-      Environment = "dev" # 環境を示すタグ（開発環境）
+      Environment = "dev"
     }
   }
 }
@@ -29,7 +24,7 @@ module "module" {
   source = "../modules"
 
   #subnet
-  private_subnet_map = {
+  public_subnet_map = {
     az_a = {
       cidr_block = "10.0.1.0/24"
       az         = "a"
@@ -39,7 +34,7 @@ module "module" {
       az         = "c"
     }
   }
-  public_subnet_map = {
+  private_subnet_map = {
     az_a = {
       cidr_block = "10.0.11.0/24"
       az         = "a"
