@@ -1,2 +1,2 @@
 # aws-hands-on
-AWSのハンズオンの内容を元にTerraformを記載する学習用リポジトリ
+AWSの各構成をTerraformで構築するための学習用リポジトリ
