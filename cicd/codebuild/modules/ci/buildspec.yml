@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo "Building website..."
+      - mkdir -p dist
+      - echo "<html><body><h1>Hello from CodeBuild</h1><p>Static website on S3</p></body></html>" > dist/index.html
+      - echo "<html><body><h1>404 Error</h1></body></html>" > dist/error.html
+  post_build:
+    commands:
+      - echo "Deploying to S3..."
+      - aws s3 sync dist/ s3://$S3_BUCKET/ --delete
+      - echo "Build complete!"
